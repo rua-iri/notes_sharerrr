@@ -1,5 +1,5 @@
 import { Slot } from "expo-router";
-import { Platform, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Header from "../components/Header";
 
 export default function HomeLayout() {
@@ -12,5 +12,7 @@ export default function HomeLayout() {
 }
 
 const style = StyleSheet.create({
-  root: {},
+  root: {
+    height: "auto"
+  },
 });
