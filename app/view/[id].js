@@ -6,6 +6,8 @@ import {
 } from "expo-router";
 
 import {
+  Image,
+  Pressable,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -34,24 +36,14 @@ export default function Page() {
   return (
     <View>
       <PageTitle title={`Note ID: ${id}`} />
-      {/* <SafeAreaView style={styles.scrollContainer}>
-        <ScrollView>
-          <Text>{noteText}</Text>
-        </ScrollView>
-      </SafeAreaView> */}
-      <SafeAreaView style={styles.container}>
-        <ScrollView style={styles.scrollView}>
-          <Text style={styles.text}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </Text>
-        </ScrollView>
-      </SafeAreaView>
+      <ScrollView style={styles.scrollContainer}>
+        <Text>{noteText}</Text>
+      </ScrollView>
+      <Pressable style={styles.button}>
+        <Link href={`/edit/${id}`} style={styles.buttonLabel}>
+          Edit Note
+        </Link>
+      </Pressable>
     </View>
   );
 }
@@ -60,22 +52,23 @@ const styles = StyleSheet.create({
   scrollContainer: {
     flex: 1,
     margin: 15,
+    marginHorizontal: 20,
     padding: 15,
     borderWidth: 1,
     borderRadius: 5,
+    maxHeight: 500,
+    minHeight: 500,
   },
-  scrollView: {
-    backgroundColor: "pink",
-    marginHorizontal: 20,
+  button: {
+    backgroundColor: "#313131",
+    borderWidth: 1,
+    margin: 15,
+    borderRadius: 5,
   },
-  container: {
-    flex: 1,
-  },
-  scrollView: {
-    backgroundColor: "pink",
-    marginHorizontal: 20,
-  },
-  text: {
-    fontSize: 42,
+  buttonLabel: {
+    textAlign: "center",
+    color: "#fff",
+    fontSize: 20,
+    padding: 10,
   },
 });
